@@ -1,0 +1,151 @@
+.profile-page {
+  min-height: 100vh;
+
+  background: #0c0a08;
+
+  color: #f5efe5;
+}
+
+.profile-container {
+  max-width: 1000px;
+
+  margin: auto;
+
+  padding: 80px 7%;
+}
+
+.profile-container h1 {
+  font-family: Georgia, serif;
+
+  font-size: 60px;
+
+  font-weight: 400;
+}
+
+.profile-container h1 span {
+  color: #c99a4a;
+
+  font-style: italic;
+}
+
+.profile-card {
+  margin-top: 50px;
+
+  padding: 30px;
+
+  background: #15120f;
+
+  border: 1px solid #403932;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+}
+
+.profile-avatar {
+  width: 70px;
+  height: 70px;
+
+  border-radius: 50%;
+
+  background: #c99a4a;
+
+  color: #0c0a08;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 28px;
+
+  font-weight: bold;
+}
+
+.profile-card h2 {
+  font-family: Georgia, serif;
+
+  font-weight: 400;
+}
+
+.profile-card p {
+  color: #888078;
+
+  margin-top: 5px;
+}
+
+.profile-stats {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 15px;
+
+  margin-top: 20px;
+}
+
+.profile-stats div {
+  padding: 25px;
+
+  background: #15120f;
+
+  border: 1px solid #403932;
+}
+
+.profile-stats strong {
+  display: block;
+
+  color: #c99a4a;
+
+  font-size: 30px;
+}
+
+.profile-stats span {
+  color: #777069;
+
+  font-size: 12px;
+}
+
+.badge-card {
+  margin-top: 20px;
+
+  padding: 30px;
+
+  background: #211c16;
+
+  border: 1px solid #715b3c;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+}
+
+.badge-card > div:first-child {
+  font-size: 60px;
+}
+
+.badge-card span {
+  color: #c99a4a;
+
+  font-size: 10px;
+
+  letter-spacing: 2px;
+}
+
+.badge-card h2 {
+  font-family: Georgia, serif;
+
+  font-weight: 400;
+
+  margin: 8px 0;
+}
+
+.badge-card p {
+  color: #888078;
+
+  font-size: 13px;
+}

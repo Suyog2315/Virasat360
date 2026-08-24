@@ -1,0 +1,825 @@
+/* =========================================================
+   VIRASAT360
+   PREMIUM AUTHENTICATION UI
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap');
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+  --cream: #f7f3e9;
+  --cream-dark: #eee8d8;
+
+  --forest: #123d32;
+  --forest-dark: #082b23;
+  --forest-soft: #1d5143;
+
+  --gold: #b68a3c;
+  --gold-light: #d8bd78;
+
+  --brown: #5b4630;
+
+  --text: #26332e;
+  --muted: #74746d;
+
+  --white: #ffffff;
+
+  --heading-font: "Playfair Display", Georgia, serif;
+  --body-font: "DM Sans", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-style: normal !important;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+
+  margin: 0;
+  padding: 0;
+}
+
+button,
+input {
+  font-family: var(--body-font);
+}
+
+
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+
+.auth-page {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--cream);
+
+  font-family: var(--body-font);
+}
+
+
+/* =========================================================
+   BACKGROUND IMAGE
+========================================================= */
+
+.auth-background {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-image:
+    url("https://upload.wikimedia.org/wikipedia/commons/4/47/Konark_Sun_Temple.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+
+  transform: scale(1.03);
+
+  filter: saturate(0.72) brightness(0.92);
+
+  z-index: 0;
+}
+
+
+/* =========================================================
+   LUXURY OVERLAY
+========================================================= */
+
+.auth-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8, 43, 35, 0.94) 0%,
+      rgba(8, 43, 35, 0.80) 34%,
+      rgba(8, 43, 35, 0.45) 57%,
+      rgba(8, 43, 35, 0.15) 100%
+    );
+}
+
+
+/* =========================================================
+   DECORATIVE GOLD GLOW
+========================================================= */
+
+.auth-page::after {
+  content: "";
+
+  position: absolute;
+
+  width: 600px;
+  height: 600px;
+
+  right: -250px;
+  bottom: -300px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(216, 189, 120, 0.20),
+      transparent 68%
+    );
+
+  z-index: 2;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   BACK TO HOME
+========================================================= */
+
+.auth-back {
+  position: absolute;
+
+  top: 32px;
+  left: 42px;
+
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 10px 15px;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  background: rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(10px);
+
+  color: #ffffff;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.3px;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.auth-back:hover {
+  border-color: var(--gold-light);
+
+  background: rgba(255, 255, 255, 0.13);
+
+  color: var(--gold-light);
+
+  transform: translateX(-2px);
+}
+
+
+/* =========================================================
+   MAIN WRAPPER
+========================================================= */
+
+.auth-wrapper {
+  position: relative;
+
+  z-index: 5;
+
+  width: 100%;
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  padding-right: 9%;
+}
+
+
+/* =========================================================
+   AUTH CARD
+========================================================= */
+
+.auth-card {
+  width: 455px;
+
+  padding: 42px 45px 38px;
+
+  background:
+    rgba(250, 248, 241, 0.97);
+
+  border: 1px solid rgba(255, 255, 255, 0.85);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.28);
+
+  backdrop-filter: blur(20px);
+
+  position: relative;
+}
+
+
+/* =========================================================
+   GOLD CARD LINE
+========================================================= */
+
+.auth-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--gold),
+      var(--gold-light),
+      var(--gold)
+    );
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.auth-logo {
+  display: block;
+
+  width: 165px;
+  height: auto;
+
+  max-height: 75px;
+
+  object-fit: contain;
+
+  object-position: left center;
+
+  margin-bottom: 22px;
+}
+
+
+/* =========================================================
+   SMALL LABEL
+========================================================= */
+
+.auth-label {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 17px;
+
+  color: var(--gold);
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 3px;
+}
+
+.auth-label::before {
+  content: "";
+
+  width: 30px;
+  height: 1px;
+
+  background: var(--gold);
+}
+
+
+/* =========================================================
+   MAIN HEADING
+========================================================= */
+
+.auth-card h1 {
+  margin: 0 0 18px;
+
+  color: var(--forest-dark);
+
+  font-family: var(--heading-font);
+
+  font-size: 43px;
+
+  line-height: 1.08;
+
+  font-weight: 500;
+
+  letter-spacing: -0.7px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.auth-description {
+  max-width: 360px;
+
+  margin-bottom: 28px;
+
+  color: var(--muted);
+
+  font-family: var(--body-font);
+
+  font-size: 12px;
+
+  line-height: 1.7;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   INPUT GROUP
+========================================================= */
+
+.auth-input-group {
+  width: 100%;
+
+  margin-bottom: 18px;
+}
+
+.auth-input-group label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--text);
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.4px;
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.auth-input-group input {
+  display: block;
+
+  width: 100%;
+  height: 48px;
+
+  padding: 0 14px;
+
+  border: 1px solid #d6d1c4;
+
+  outline: none;
+
+  border-radius: 0;
+
+  background: rgba(255, 255, 255, 0.75);
+
+  color: var(--text);
+
+  font-family: var(--body-font);
+
+  font-size: 12px;
+
+  transition: all 0.25s ease;
+}
+
+.auth-input-group input:hover {
+  border-color: #bcb5a5;
+}
+
+.auth-input-group input:focus {
+  border-color: var(--gold);
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 3px rgba(182, 138, 60, 0.08);
+}
+
+.auth-input-group input::placeholder {
+  color: #a6a49d;
+}
+
+
+/* =========================================================
+   PASSWORD LABEL
+========================================================= */
+
+.auth-password-label {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.auth-password-label button {
+  border: none;
+
+  background: transparent;
+
+  color: var(--gold);
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  padding: 2px 0;
+}
+
+.auth-password-label button:hover {
+  color: var(--forest);
+}
+
+
+/* =========================================================
+   FORGOT PASSWORD
+========================================================= */
+
+.auth-forgot {
+  display: flex;
+
+  justify-content: flex-end;
+
+  margin-top: -4px;
+
+  margin-bottom: 20px;
+}
+
+.auth-forgot button {
+  border: none;
+
+  background: transparent;
+
+  color: var(--forest);
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+.auth-forgot button:hover {
+  color: var(--gold);
+}
+
+
+/* =========================================================
+   SIGN IN BUTTON
+========================================================= */
+
+.auth-primary-btn {
+  width: 100%;
+  height: 50px;
+
+  padding: 0 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border: 1px solid var(--forest);
+
+  background: var(--forest);
+
+  color: #ffffff;
+
+  font-family: var(--body-font);
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.4px;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.auth-primary-btn span:last-child {
+  color: var(--gold-light);
+
+  font-size: 16px;
+}
+
+.auth-primary-btn:hover {
+  background: var(--forest-dark);
+
+  border-color: var(--forest-dark);
+
+  box-shadow:
+    0 12px 25px rgba(8, 43, 35, 0.18);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.auth-divider {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  margin: 23px 0 18px;
+
+  color: #aaa69c;
+
+  font-size: 8px;
+
+  font-weight: 500;
+
+  letter-spacing: 1.5px;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+
+  flex: 1;
+
+  height: 1px;
+
+  background: #ddd8cb;
+}
+
+
+/* =========================================================
+   GOOGLE BUTTON
+========================================================= */
+
+.auth-google-btn {
+  width: 100%;
+  height: 47px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  border: 1px solid #d6d1c4;
+
+  background: #ffffff;
+
+  color: var(--text);
+
+  font-family: var(--body-font);
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.auth-google-btn:hover {
+  border-color: var(--gold);
+
+  background: #fffdf8;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.google-symbol {
+  color: #4285f4;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   REGISTER TEXT
+========================================================= */
+
+.auth-switch {
+  margin-top: 22px;
+
+  text-align: center;
+
+  color: var(--muted);
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+.auth-switch button {
+  margin-left: 5px;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--forest);
+
+  font-family: var(--body-font);
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.auth-switch button:hover {
+  color: var(--gold);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .auth-wrapper {
+    justify-content: center;
+
+    padding:
+      80px 25px 40px;
+  }
+
+  .auth-card {
+    width: 100%;
+
+    max-width: 450px;
+  }
+
+  .auth-background {
+    background-position: center;
+  }
+
+}
+
+
+@media (max-width: 520px) {
+
+  .auth-card {
+    padding: 38px 28px 32px;
+  }
+
+  .auth-card h1 {
+    font-size: 36px;
+  }
+
+  .auth-logo {
+    width: 145px;
+  }
+
+  .auth-back {
+    top: 18px;
+    left: 18px;
+  }
+
+}
+/* =========================================
+   ODISHA HERITAGE SIDE
+========================================= */
+
+.auth-heritage {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  width: 55%;
+  height: 100vh;
+
+  z-index: 3;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding-left: 7%;
+}
+
+
+/* Heritage Image */
+
+.auth-heritage-image {
+  width: 520px;
+  height: 360px;
+
+  background-image:
+    linear-gradient(
+      rgba(8, 43, 35, 0.08),
+      rgba(8, 43, 35, 0.08)
+    ),
+    url("/konark.jpg");
+
+  background-size: cover;
+  background-position: center;
+
+  border: 1px solid rgba(216, 189, 120, 0.55);
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.28);
+}
+
+
+/* Tagline */
+
+.auth-heritage-content {
+  margin-top: 28px;
+
+  padding-left: 4px;
+}
+
+
+.auth-heritage-content h2 {
+  margin: 0;
+
+  color: #f8f3e7;
+
+  font-family: "Playfair Display", Georgia, serif;
+
+  font-size: 32px;
+
+  line-height: 1.15;
+
+  font-weight: 500;
+
+  letter-spacing: -0.3px;
+
+  font-style: normal;
+}
+
+
+.auth-heritage-content p {
+  margin-top: 14px;
+
+  color: #d8bd78;
+
+  font-family: "DM Sans", Arial, sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+}
