@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./Auth.css";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./Login.css";
 
 function Login() {
   const navigate = useNavigate();
@@ -9,269 +9,117 @@ function Login() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  // Login function
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Firebase authentication will be connected here later
-    console.log("Email:", email);
-    console.log("Password:", password);
-  };
+    if (!email || !password) {
+      alert("Please enter your email and password.");
+      return;
+    }
 
-  // Google login
-  const handleGoogleLogin = () => {
-    // Firebase Google authentication will be added later
-    console.log("Google Login");
+    // Demo login
+    alert("Welcome to Virasat360!");
+
+    // After successful login
+    navigate("/heritage-sites");
   };
 
   return (
-    <div className="auth-page">
+    <div className="login-page">
 
-      {/* =========================================
-          BACKGROUND
-      ========================================= */}
+      <div className="login-card">
 
-      <div className="auth-background"></div>
+        {/* Back */}
+        <Link to="/" className="back-link">
+          ← Back to Home
+        </Link>
 
-      <div className="auth-overlay"></div>
-
-
-      {/* =========================================
-          BACK TO HOME
-      ========================================= */}
-
-      <button
-        className="auth-back"
-        onClick={() => navigate("/")}
-      >
-        ← Back to Home
-      </button>
-
-
-      {/* =========================================
-          LEFT ODISHA HERITAGE SECTION
-      ========================================= */}
-
-      <div className="auth-heritage">
-
-        {/* Odisha Heritage Image */}
-
-        <div className="auth-heritage-image"></div>
-
-
-        {/* Brand Tagline */}
-
-        <div className="auth-heritage-content">
-
-          <h2>
-            From Forgotten Stories
-          </h2>
-
-          <h2>
-            to Living Heritage.
-          </h2>
-
+        {/* Logo */}
+        <div className="login-logo">
+          🏛️
         </div>
 
-      </div>
+        <h1>Welcome Back</h1>
 
+        <p className="login-subtitle">
+          Sign in to continue your Virasat360 journey
+        </p>
 
-      {/* =========================================
-          RIGHT LOGIN SECTION
-      ========================================= */}
+        <form onSubmit={handleLogin}>
 
-      <div className="auth-wrapper">
+          {/* Email */}
+          <div className="form-group">
+            <label>Email Address</label>
 
-        <div className="auth-card">
-
-
-          {/* =====================================
-              LOGO
-          ===================================== */}
-
-          <img
-            src="/logo.png"
-            alt="Virasat360 Logo"
-            className="auth-logo"
-          />
-
-
-          {/* =====================================
-              SMALL LABEL
-          ===================================== */}
-
-          <div className="auth-label">
-            WELCOME BACK
+            <input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
 
+          {/* Password */}
+          <div className="form-group">
+            <label>Password</label>
 
-          {/* =====================================
-              MAIN HEADING
-          ===================================== */}
-
-          <h1>
-            Continue Your
-            <br />
-            Heritage Journey
-          </h1>
-
-
-          {/* =====================================
-              DESCRIPTION
-          ===================================== */}
-
-          <p className="auth-description">
-            Sign in to continue exploring India's living heritage,
-            historical stories and immersive experiences.
-          </p>
-
-
-          {/* =====================================
-              LOGIN FORM
-          ===================================== */}
-
-          <form onSubmit={handleLogin}>
-
-
-            {/* EMAIL */}
-
-            <div className="auth-input-group">
-
-              <label htmlFor="email">
-                EMAIL ADDRESS
-              </label>
+            <div className="password-wrapper">
 
               <input
-                id="email"
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-
-            </div>
-
-
-            {/* PASSWORD */}
-
-            <div className="auth-input-group">
-
-              <div className="auth-password-label">
-
-                <label htmlFor="password">
-                  PASSWORD
-                </label>
-
-                <button
-                  type="button"
-                  onClick={() =>
-                    setShowPassword(!showPassword)
-                  }
-                >
-                  {showPassword ? "Hide" : "Show"}
-                </button>
-
-              </div>
-
-
-              <input
-                id="password"
                 type={showPassword ? "text" : "password"}
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required
               />
-
-            </div>
-
-
-            {/* FORGOT PASSWORD */}
-
-            <div className="auth-forgot">
 
               <button
                 type="button"
-                onClick={() => {
-                  console.log("Forgot password");
-                }}
+                className="show-password"
+                onClick={() => setShowPassword(!showPassword)}
               >
-                Forgot password?
+                {showPassword ? "Hide" : "Show"}
               </button>
 
             </div>
-
-
-            {/* SIGN IN BUTTON */}
-
-            <button
-              type="submit"
-              className="auth-primary-btn"
-            >
-
-              <span>
-                SIGN IN
-              </span>
-
-              <span>
-                →
-              </span>
-
-            </button>
-
-          </form>
-
-
-          {/* =====================================
-              DIVIDER
-          ===================================== */}
-
-          <div className="auth-divider">
-            <span>OR</span>
           </div>
 
+          {/* Options */}
+          <div className="login-options">
 
-          {/* =====================================
-              GOOGLE LOGIN
-          ===================================== */}
-
-          <button
-            type="button"
-            className="auth-google-btn"
-            onClick={handleGoogleLogin}
-          >
-
-            <span className="google-symbol">
-              G
-            </span>
-
-            <span>
-              Continue with Google
-            </span>
-
-          </button>
-
-
-          {/* =====================================
-              REGISTER
-          ===================================== */}
-
-          <div className="auth-switch">
-
-            <span>
-              Don't have an account?
-            </span>
+            <label className="remember">
+              <input type="checkbox" />
+              Remember me
+            </label>
 
             <button
               type="button"
-              onClick={() => navigate("/register")}
+              className="forgot-password"
             >
-              Create an account
+              Forgot Password?
             </button>
 
           </div>
 
+          {/* Login */}
+          <button type="submit" className="login-button">
+            Sign In
+          </button>
+
+        </form>
+
+        {/* Divider */}
+        <div className="login-divider">
+          <span>OR</span>
+        </div>
+
+        {/* Register */}
+        <div className="register-section">
+
+          <p>Don't have an account?</p>
+
+          <Link to="/register" className="register-button">
+            Create Account
+          </Link>
 
         </div>
 
